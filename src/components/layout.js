@@ -3,45 +3,45 @@ import {Link} from "gatsby"
 import "../style/bulmacustom.scss"
 // import { Breadcrumb } from "gatsby-plugin-breadcrumb"
 
-const navItems = [
-    // {content:<code>Artist, Designer, and PhD Researcher in Artificial Intelligence and Music</code>, 
-    //   link: "/info"},
-]
-const socialMediaItems = [
-  {
-    iconName: "fa-twitter",
-    link: "https://twitter.com/c4dm",
-  },
-];
+// const navItems = [
+//     // {content:<code>Artist, Designer, and PhD Researcher in Artificial Intelligence and Music</code>, 
+//     //   link: "/info"},
+// ]
+// const socialMediaItems = [
+//   // {
+//   //   iconName: "fa-twitter",
+//   //   link: "https://twitter.com/c4dm",
+//   // },
+// ];
 
-const Layout = ({children, nameInNav, crumbs, name, hero}) => {
+const Layout = ({children, nameInNav, crumbs, name, hero, toc}) => {
 
   
     const navBar = (
-      <nav className="column is-2-desktop has-text-left-desktop mx-0 pr-0" role="navigation" aria-label="main navigation">
-        <Link to="/" className="is-uppercase logo">
-          Sonifiction
-          </Link>
-        
-        <div class="navbar-end">
-            {navItems.map((item) => (
-              <Link className="" to={item.link}> 
-                {item.content}
-                </Link>
-
-            ))}
-          </div>
+      <nav className="column is-2-desktop has-text-left-desktop mx-0 pr-0 my-0"  role="navigation" aria-label="main navigation">
+          <Link to="/" className="is-uppercase logo nav">
+            Sonifiction
+            </Link>
+          
       </nav>
+
     );
 
     const middleColumn=(
-      <div className="column is-3-desktop has-text-left-desktop mx-0 ml-6-desktop pl-6-desktop pr-0"></div>
+      <div className="column is-3-desktop has-text-left-desktop mx-0 ml-6-desktop pl-6-desktop pr-0 my-0 middlecolumn">
+        {/* {toc} */}
+        <div className="nav">
+        {toc.map((item) => (
+                <React.Fragment>
+                <a href={item.link}> 
+                  {item.content}
+                  </a>
+                  <br></br>
+                  </React.Fragment>
+              ))}
+              </div>
+      </div>
     )
-    const endBar = (
-      <nav className="column is-2-desktop has-text-left-desktop" role="navigation">
-      </nav>
-    );
-
     const svgFilters = 
       <svg className="SVGFilterStore">
           <defs >
@@ -77,14 +77,14 @@ const Layout = ({children, nameInNav, crumbs, name, hero}) => {
     
 
     return(
-      <body className="columns is-8 is-centered is-desktop px-4 mr-6-desktop my-1 is-flex-direction-row-reverse">
+      <body className="columns is-8 is-centered is-desktop px-4 mr-6-desktop my-6 is-flex-direction-row-reverse">
           {navBar}
           {middleColumn}
           
-          <main className="pageContent column pr-6 mr-6 is-5-desktop">
+          <main className="pageContent column pr-6 mr-6 is-5-desktop my-0">
             {children}
             </main>
-            {endBar}
+            {/* {endBar} */}
             {svgFilters}
           </body>
     );

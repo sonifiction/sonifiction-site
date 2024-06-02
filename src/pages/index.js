@@ -3,20 +3,21 @@ import { graphql, useStaticQuery } from "gatsby";
 import Layout from "../components/layout";
 import ThemeList from "../components/themeList";
 import WorkPost from "../templates/workPost";
+import lodash from "lodash";
 
 const IndexPage = ({ pageContext }) => {
   const {
     breadcrumb: { crumbs },
   } = pageContext
 
-  // I want to query specific folders. 
+  // I want to query a specific render folder
   // Then loop through their subfolders looking for md and image files. 
   // Return the first of each.
 
   const data = useStaticQuery(graphql`
     {
  all: allMarkdownRemark(
-    filter: {fileAbsolutePath: {regex: "/(content\/)/"  }}
+    filter: {fileAbsolutePath: {regex: "/(render\/)/"  }}
     sort: {frontmatter: {date: DESC}}
   ) {
     nodes {
@@ -68,10 +69,13 @@ const IndexPage = ({ pageContext }) => {
   // <p>{.html}</p>
 )
 
-
+const toc = data.all.nodes.map(post => ({
+    content: post.frontmatter.title,
+    link:('#'+ lodash.camelCase(post.frontmatter.title))
+  }));
 
   return (
-    <Layout name="Index" crumbs={crumbs}>
+    <Layout name="Index" crumbs={crumbs} toc={toc}>
       <section>
         {works}
         </section>

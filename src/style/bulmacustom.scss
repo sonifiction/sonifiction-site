@@ -1,10 +1,10 @@
-$primary: rgb(254, 144, 0);
+$primary: pink;
 $background-color:  rgb(11, 0, 53);
 // $background-color: black;
-$background: pink;
+// $background: pink;
 $text: rgb(82, 82, 82);
 $heading-text: $text;
-$accent-text: pink;
+$accent-text: $primary;
 $link: $primary;
 $hoverLink: $text;
 // useful for random colour on compile? https: //bulma.io/documentation/utilities/functions/
@@ -48,7 +48,7 @@ $serif-family: "Junicode" ;
 
 body{
     font-family: $font-family;
-    p{
+    p,ol{
         font-family: $serif-family;
             // font-style: italic;
             font-weight: 400;
@@ -60,6 +60,8 @@ body{
     
 }
 
+
+
 ::selection {
     background: $primary;
     color: $background-color;
@@ -69,12 +71,17 @@ body{
 .listedEntry .customSubheading::before {
     content: '↹';
 }
-.customSubheading{
+.customSubheading, .middlecolumn{
     font-family: $serif-family;
     font-style: italic;
     font-weight: 600;
     letter-spacing: -0.08em;
 
+}
+
+.middlecolumn{
+top: -20em;
+ font-size: 1.4em;   
 }
 // issue, markdown headings not matching colour
 .content, .notMarkdown{
@@ -337,11 +344,28 @@ a:hover {
 }
 
 // maybe pin this on desktop
-nav{
+ .middlecolumn {
+     top: 0em;
+ }
+
+.nav{
     margin-top: 100px;
+    // position: sticky;
+    position: -webkit-fixed;/* for Safari */
+    position: fixed;
+    align-self: flex-start;/* <-- this is the fix */
+    top: 0;
+    // background-color: red; /* Not necessary -- for example only */
     @media only screen and (max-width : $desktop) {
             margin-top: 0px;
         }
+}
+
+
+.middlecolumn .nav {
+    @media only screen and (max-width : $desktop) {
+        top: 1.5em;
+    }
 }
 
 .pageContent{
