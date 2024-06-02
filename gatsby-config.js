@@ -6,8 +6,8 @@ module.exports = {
     DEV_SSR: false
   },
   siteMetadata: {
-    title: `Ashley Noel-Hirst`,
-    siteUrl: `https://www.noelhirst.net`,
+    title: `Sonifiction`,
+    siteUrl: `https://www.sonifiction.net`,
   },
   plugins: [
     "gatsby-plugin-styled-components",

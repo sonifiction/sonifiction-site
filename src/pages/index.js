@@ -6,9 +6,6 @@ import WorkPost from "../templates/workPost";
 import lodash from "lodash";
 
 const IndexPage = ({ pageContext }) => {
-  const {
-    breadcrumb: { crumbs },
-  } = pageContext
 
   // I want to query a specific render folder
   // Then loop through their subfolders looking for md and image files. 
@@ -27,16 +24,6 @@ const IndexPage = ({ pageContext }) => {
       frontmatter {
         subtitle
         title
-        image {
-          childImageSharp {
-            gatsbyImageData(
-              height: 35
-              placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
-              )
-          }
-          id
-        }
         tags
         date(formatString: "ddd DD MMM yy")
       }
@@ -75,7 +62,7 @@ const toc = data.all.nodes.map(post => ({
   }));
 
   return (
-    <Layout name="Index" crumbs={crumbs} toc={toc}>
+    <Layout name="Index" toc={toc}>
       <section>
         {works}
         </section>
