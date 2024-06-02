@@ -1,5 +1,5 @@
-$primary: rgb(111,220,151);
-$background-color:  rgb(252, 248, 250);
+$primary: rgb(254, 144, 0);
+$background-color:  rgb(11, 0, 53);
 // $background-color: black;
 $background: pink;
 $text: rgb(82, 82, 82);
@@ -48,6 +48,7 @@ $serif-family: "Junicode" ;
 
 body{
     font-family: $font-family;
+    
 }
 
 ::selection {
@@ -71,7 +72,7 @@ body{
     // set base size
         
     font-size: 12px;
-
+    
     @include tablet {
         font-size: 18px;
     }
@@ -335,8 +336,11 @@ nav{
 }
 
 .logo{
-    font-size: 1em;
-    font-weight: bold;
+    font-size: 1.7em;
+    $blurAmount: 0.05em;
+    @extend .highContrastBlur;
+    font-weight: 900;
+    font-stretch: condensed ;
 }
 
 

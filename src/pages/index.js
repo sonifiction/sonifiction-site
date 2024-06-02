@@ -2,7 +2,7 @@ import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import Layout from "../components/layout";
 import ThemeList from "../components/themeList";
-
+import WorkPost from "../templates/workPost";
 
 const IndexPage = ({ pageContext }) => {
   const {
@@ -14,9 +14,9 @@ const IndexPage = ({ pageContext }) => {
   // Return the first of each.
 
   const data = useStaticQuery(graphql`
-  {
-  sound: allMarkdownRemark(
-    filter: {fileAbsolutePath: {regex: "/(sound\/)/"  }}
+    {
+ all: allMarkdownRemark(
+    filter: {fileAbsolutePath: {regex: "/(content\/)/"  }}
     sort: {frontmatter: {date: DESC}}
   ) {
     nodes {
@@ -40,80 +40,35 @@ const IndexPage = ({ pageContext }) => {
         date(formatString: "ddd DD MMM yy")
       }
       id
-    }
-  }
+      html
 
-  design: allMarkdownRemark(
-    filter: {fileAbsolutePath: {regex: "/(design\/)/"  }}
-    sort: {frontmatter: {date: DESC}}
-  ) {
-    nodes {
-      fields {
-        slug
-      }
-      frontmatter {
-        subtitle
-        title
-        image {
-          childImageSharp {
-            gatsbyImageData(
-              height: 35
-              placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
-              )
-          }
-          id
-        }
-        tags
-        date(formatString: "ddd DD MMM yy")
-      }
-      id
-    }
-  }
-
-  research: allMarkdownRemark(
-    filter: {fileAbsolutePath: {regex: "/(research\/)/"  }}
-    sort: {frontmatter: {date: DESC}}
-  ) {
-    nodes {
-      fields {
-        slug
-      }
-      frontmatter {
-        subtitle
-        title
-        image {
-          childImageSharp {
-            gatsbyImageData(
-              height: 35
-              placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
-              )
-          }
-          id
-        }
-        tags
-        date(formatString: "ddd DD MMM yy")
-      }
-      id
     }
   }
 }
   `);
 
 
-  const themes = [{"name": 'Sound',"data": data.sound.nodes, "link": "/sound"}, 
-                  {"name": 'Design',"data": data.design.nodes, "link": "/design"}, 
-                  {"name": 'Research',"data": data.research.nodes, "link": "/research"}]
-  const works = (
+  // const themes = [{"name": 'Sound',"data": data.sound.nodes, "link": "/sound"}, 
+  //                 {"name": 'Design',"data": data.design.nodes, "link": "/design"}, 
+  //                 {"name": 'Research',"data": data.research.nodes, "link": "/research"}]
+  // const works = (
 
-    //loop through theme, give it a title and a list of things
-    themes.map((theme)=> 
-      (
-        <ThemeList className={theme.name} theme={theme.name} data={theme.data} link={theme.link}></ThemeList>
-        )
-      )  
-    )
+  //   //loop through theme, give it a title and a list of things
+  //   themes.map((theme)=> 
+  //     (
+  //       <ThemeList className={theme.name} theme={theme.name} data={theme.data} link={theme.link}></ThemeList>
+  //       )
+  //     )  
+  //   )
+
+  // myNodes =
+
+  const works = data.all.nodes.map((post) => 
+    <WorkPost data={post} ></WorkPost>
+  // <p>{.html}</p>
+)
+
+
 
   return (
     <Layout name="Index" crumbs={crumbs}>

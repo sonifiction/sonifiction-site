@@ -4,8 +4,8 @@ import "../style/bulmacustom.scss"
 // import { Breadcrumb } from "gatsby-plugin-breadcrumb"
 
 const navItems = [
-    {content:<code>Artist, Designer, and PhD Researcher in Artificial Intelligence and Music</code>, 
-      link: "/info"},
+    // {content:<code>Artist, Designer, and PhD Researcher in Artificial Intelligence and Music</code>, 
+    //   link: "/info"},
 ]
 const socialMediaItems = [
   {
@@ -18,9 +18,9 @@ const Layout = ({children, nameInNav, crumbs, name, hero}) => {
 
   
     const navBar = (
-      <nav className="column is-2-desktop has-text-left-desktop mx-4 mr-6 pr-6 pl-0" role="navigation" aria-label="main navigation">
+      <nav className="column is-2-desktop has-text-left-desktop mx-0 pr-0" role="navigation" aria-label="main navigation">
         <Link to="/" className="is-uppercase logo">
-          Ashley Noel-Hirst
+          Sonifiction
           </Link>
         
         <div class="navbar-end">
@@ -34,6 +34,9 @@ const Layout = ({children, nameInNav, crumbs, name, hero}) => {
       </nav>
     );
 
+    const middleColumn=(
+      <div className="column is-3-desktop has-text-left-desktop mx-0 ml-6-desktop pl-6-desktop pr-0"></div>
+    )
     const endBar = (
       <nav className="column is-2-desktop has-text-left-desktop" role="navigation">
       </nav>
@@ -74,10 +77,11 @@ const Layout = ({children, nameInNav, crumbs, name, hero}) => {
     
 
     return(
-      <body className="columns is-8 is-centered is-desktop mx-0 my-1">
+      <body className="columns is-8 is-centered is-desktop px-4 mr-6-desktop my-1 is-flex-direction-row-reverse">
           {navBar}
+          {middleColumn}
           
-          <main className="pageContent column is-6-desktop px-4">
+          <main className="pageContent column pr-6 mr-6 is-5-desktop">
             {children}
             </main>
             {endBar}

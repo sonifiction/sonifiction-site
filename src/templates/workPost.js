@@ -6,17 +6,19 @@ const WorkPost = ({ data,
                     // pageContext 
                     }) => {
   // const {breadcrumb: { crumbs }} = pageContext
-    const {markdownRemark} = data;
-    const {frontmatter, 
-      // fields, 
-      html} = markdownRemark;
+    // const {markdownRemark} = data;
+    // const {frontmatter, 
+    //   // fields, 
+    //   html} = markdownRemark;
     
 
     return (
-      <Layout>
-            <h1 className="smaller mb-5">{frontmatter.title}
-            {frontmatter.subtitle ? 
-                    (<span className="customSubheading"> <br/> {frontmatter.subtitle} </span>) 
+      // <Layout>
+      // <p>{data.html}</p>
+      <span>
+            <h1 className="smaller mb-5">{data.frontmatter.title}
+            {data.frontmatter.subtitle ? 
+                    (<span className="customSubheading"> <br/> {data.frontmatter.subtitle} </span>) 
                     : 
                     (
                     <></>
@@ -25,12 +27,13 @@ const WorkPost = ({ data,
                     </h1>
             <div
               className="content"
-              dangerouslySetInnerHTML={{ __html: html }}
+              dangerouslySetInnerHTML={{ __html: data.html }}
             >
             </div>
             <br/>
             <br/>
-      </Layout>
+      </span>
+      //{/* </Layout> */}
     );
 }
 
