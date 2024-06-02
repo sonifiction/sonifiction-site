@@ -48,6 +48,14 @@ $serif-family: "Junicode" ;
 
 body{
     font-family: $font-family;
+    p{
+        font-family: $serif-family;
+            // font-style: italic;
+            font-weight: 400;
+            font-size: 1.5em;
+            // letter-spacing: -0.08em;
+            line-height: 1em;
+    }
     
 }
 
