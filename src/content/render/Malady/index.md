@@ -48,33 +48,33 @@ In 2023, I decided to leave the band in order to focus on research and my own mu
 <figure>
     <div>
         <div class="is-child">
-            <img src="./Malady_Poster_1.jpg" alt="Swim deep tour poster">
+            <img src="Malady_Poster_1.jpg" alt="Swim deep tour poster" />
             </div>
         <div class="is-child">
-            <img src="./Malady_Poster_2.jpg" alt="nine8 live at fabric poster">
-            </div>
-        </div>
-</figure>
-<figure>
-    <div>
-        <div class="is-child">
-            <img src="./Malady_Poster_3.jpg" alt="Sam Akpro tour poster. Green background, black text">
-            </div>
-        <div class="is-child">
-            <img src="./Malady_Poster_4.jpg" alt="Poster for the great escape. Black text, orange circle, waves behind">
+            <img src="Malady_Poster_2.jpg" alt="nine8 live at fabric poster" />
             </div>
         </div>
 </figure>
 <figure>
     <div>
         <div class="is-child">
-            <img src="./malady_live_2.jpg" alt="A man behind a drumkit, in fog wearing a flatcap">
+            <img src="Malady_Poster_3.jpg" alt="Sam Akpro tour poster. Green background, black text" />
             </div>
         <div class="is-child">
-            <img src="./malady_live_3.jpg" alt="A man behind a drumkit, obscured by cymbals">
+            <img src="Malady_Poster_4.jpg" alt="Poster for the great escape. Black text, orange circle, waves behind" />
+            </div>
+        </div>
+</figure>
+<figure>
+    <div>
+        <div class="is-child">
+            <img src="malady_live_2.jpg" alt="A man behind a drumkit, in fog wearing a flatcap" />
             </div>
         <div class="is-child">
-            <img src="./malady_live_5.jpg" alt="A view from behind the drumkit, Charlie and Khaleem">
+            <img src="malady_live_3.jpg" alt="A man behind a drumkit, obscured by cymbals" />
+            </div>
+        <div class="is-child">
+            <img src="malady_live_5.jpg" alt="A view from behind the drumkit, Charlie and Khaleem" />
             </div>
         </div>
 </figure>

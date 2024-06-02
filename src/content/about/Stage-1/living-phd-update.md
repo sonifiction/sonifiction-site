@@ -50,31 +50,31 @@ Generally, I am interested in the iterative mediation people experience as they 
 
 ## Current Designs - Interacting with neural sound
 
-<!-- <img src="./me-and-rave.png" alt="An emoji of me over the latent axes of a neural network"/> -->
+<!-- <img src="me-and-rave.jpg" alt="An emoji of me over the latent axes of a neural network" /> -->
 
-<!-- <img src="./Particles-move.png" alt="Green background with white particles swarming in a circle"> -->
+<!-- <img src="Particles-move.jpg" alt="Green background with white particles swarming in a circle" /> -->
 <figure>
 
-![An emoji of me over the latent axes of a neural network](./me-and-rave.png) 
+![An emoji of me over the latent axes of a neural network](me-and-rave_dithered_dithered.jpg) 
 <figcaption> ↑ I am currently designing a system for manipulating the latent representation of pre-loaded sounds </figcaption>
 </figure>
 
 <figure>
 
-![Neural Sampler](timbre-over-time.png) 
+![Neural Sampler](timbre-over-time_dithered_dithered.jpg) 
 <figcaption> ↑ "Neural Sampler" (This is currently on pause while I work on the below)</figcaption>
 </figure>
 
 
 <figure>
 
-![Label Rave](label-rave.png) 
+![Label Rave](label-rave_dithered_dithered.jpg) 
 <figcaption> ↑ designing a system which facilitates user-editable generation-explanation pairs. This system will load a chosen generative model, then use a chosen classifier to map between semantic descriptors and the axes most relevant to them. 
 <!-- Currently I am exploring methods of multivariate analysis, but am unsure how to evaluate/compare the systems. -->
 </figcaption>
 </figure>
 <!-- - I am also designing a system which facilitates user-editable generation-explanation pairs. This system will load a chosen generative model, then use a chosen classifier to map between semantic descriptors and the axes most relevant to them. Currently I am exploring methods of multivariate analysis, but am unsure how to evaluate/compare the systems. -->
-<!-- ![Label Rave]( "Label Rave") -->
+<!-- ![Label Rave]( "Label Rave"_dithered_dithered.jpg) -->
 
 ## Future Work
 
