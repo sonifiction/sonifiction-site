@@ -50,9 +50,9 @@ Generally, I am interested in the iterative mediation people experience as they 
 
 ## Current Designs - Interacting with neural sound
 
-<!-- <img src="me-and-rave.jpg" alt="An emoji of me over the latent axes of a neural network" /> -->
+<!-- <img src="dithers/me-and-rave_dithered.png" alt="An emoji of me over the latent axes of a neural network" /> -->
 
-<!-- <img src="Particles-move.jpg" alt="Green background with white particles swarming in a circle" /> -->
+<!-- <img src="dithers/Particles-move_dithered.png" alt="Green background with white particles swarming in a circle" /> -->
 <figure>
 
 ![An emoji of me over the latent axes of a neural network](me-and-rave_dithered_dithered.jpg) 

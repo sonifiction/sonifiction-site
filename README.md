@@ -38,3 +38,5 @@ Colorize the dithers as well based on the LTM categories: `python3 utils/dither_
 Run the script with more debug output: `python3 utils/dither_images.py --directory src/content/ --colorize --verbose`
 
 Remove all dithered files in the subdirectories of content: `python3 utils/dither_images.py --remove --directory content/`
+
+Then: run script to replace all image references with dithered versions (markdown and html in md files) `python3 utils/replace_dither_links.py src/content`

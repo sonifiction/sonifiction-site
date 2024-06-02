@@ -8,14 +8,14 @@ alt: "A gemstone rotating slowly"
 tags: ["releases", "gigs"]
 ---
 
-![Malady, a group of four men stood in a field, film photo with soft warm colours](Malady_main_Press.jpg)
+![Malady, a group of four men stood in a field, film photo with soft warm colours](dithers/Malady_main_Press_dithered.png)
 
 Between 2021 and 2023, I was a member of Indie/Electronic band Malady. 
 
 ## Live
 Malady supported Sam Akpro, Swim Deep and Wet Leg, among others. We also played live shows at Fabric, SGW3, and more. I played drums/electronics, and (w/ Charlie Clark) provided musical direction for the band's live show.
 
-![Malady live, film photo in black and white. There are 4 figures on the stage.](malady_live_1.jpg)
+![Malady live, film photo in black and white. There are 4 figures on the stage.](dithers/malady_live_1_dithered.png)
 
 
 <!-- (Add A full list of my recent gigs can be found on the [gigs page...]) -->
@@ -26,7 +26,7 @@ In 2022, Malady released 'Round the Bend' on Nice Swan (English Teacher, Jelly C
 
 In early 2023, with support from [Modern Sky](https://www.modernsky.uk). Malady released ['All Pressure No Diamonds'](https://malady.lnk.to/AllPNoD). The EP was written and recorded together, first at Charlie's flat in East London, and then with Andy Savours (My Bloody Valentine, Black Country New Road).
 
-![Hands with rings and a dusk behind them](malady_ep_1.jpeg)
+![Hands with rings and a dusk behind them](dithers/malady_ep_1_dithered.png)
 
 
 ## Press
@@ -34,7 +34,7 @@ The band often recieved press from outlets such as [NME](https://www.nme.com/fea
 We also participated in ad campaigns with Fred Perry, Shure and Percival menswear.
 
 
-![Malady in a range of menswear, stood in a pub around a pool table](Malady_press_1.png)
+![Malady in a range of menswear, stood in a pub around a pool table](dithers/Malady_press_1_dithered.png)
 
 
 ## Leaving
@@ -48,33 +48,33 @@ In 2023, I decided to leave the band in order to focus on research and my own mu
 <figure>
     <div>
         <div class="is-child">
-            <img src="Malady_Poster_1.jpg" alt="Swim deep tour poster" />
+            <img src="dithers/Malady_Poster_1_dithered.png" alt="Swim deep tour poster" />
             </div>
         <div class="is-child">
-            <img src="Malady_Poster_2.jpg" alt="nine8 live at fabric poster" />
-            </div>
-        </div>
-</figure>
-<figure>
-    <div>
-        <div class="is-child">
-            <img src="Malady_Poster_3.jpg" alt="Sam Akpro tour poster. Green background, black text" />
-            </div>
-        <div class="is-child">
-            <img src="Malady_Poster_4.jpg" alt="Poster for the great escape. Black text, orange circle, waves behind" />
+            <img src="dithers/Malady_Poster_2_dithered.png" alt="nine8 live at fabric poster" />
             </div>
         </div>
 </figure>
 <figure>
     <div>
         <div class="is-child">
-            <img src="malady_live_2.jpg" alt="A man behind a drumkit, in fog wearing a flatcap" />
+            <img src="dithers/Malady_Poster_3_dithered.png" alt="Sam Akpro tour poster. Green background, black text" />
             </div>
         <div class="is-child">
-            <img src="malady_live_3.jpg" alt="A man behind a drumkit, obscured by cymbals" />
+            <img src="dithers/Malady_Poster_4_dithered.png" alt="Poster for the great escape. Black text, orange circle, waves behind" />
+            </div>
+        </div>
+</figure>
+<figure>
+    <div>
+        <div class="is-child">
+            <img src="dithers/malady_live_2_dithered.png" alt="A man behind a drumkit, in fog wearing a flatcap" />
             </div>
         <div class="is-child">
-            <img src="malady_live_5.jpg" alt="A view from behind the drumkit, Charlie and Khaleem" />
+            <img src="dithers/malady_live_3_dithered.png" alt="A man behind a drumkit, obscured by cymbals" />
+            </div>
+        <div class="is-child">
+            <img src="dithers/malady_live_5_dithered.png" alt="A view from behind the drumkit, Charlie and Khaleem" />
             </div>
         </div>
 </figure>
