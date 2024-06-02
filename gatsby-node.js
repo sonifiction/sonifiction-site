@@ -39,7 +39,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const result = await graphql(`
         
         {
-            sound: allMarkdownRemark (filter: {fileAbsolutePath: {regex: "/(sound)/"  }})
+            render: allMarkdownRemark (filter: {fileAbsolutePath: {regex: "/(render)/"  }})
             {   
                 nodes {
                     fields {
@@ -47,34 +47,7 @@ exports.createPages = async ({ graphql, actions }) => {
                     }
                 }
             }
-
-            garden: allMarkdownRemark ( filter: {fields: {category: {eq: "garden"}}})
-            {
-                nodes {
-                    fields {
-                        slug
-                    }
-                }
-            }
-
-            design: allMarkdownRemark ( filter: {fileAbsolutePath: {regex: "/(design)/"  }})
-            {   
-                nodes {
-                    fields {
-                        slug
-                    }
-                }
-            }
-          
-          research: allMarkdownRemark (filter: {fileAbsolutePath: {regex: "/(research)/"  }})
-            {   
-                nodes {
-                    fields {
-                        slug
-                    }
-                }
-            }
-
+        
             about: allMarkdownRemark (filter: {fileAbsolutePath: {regex: "/(about)/"  }})
             {   
                 nodes {
@@ -98,8 +71,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
 
     // Create work pages 
-    // TODO: Turn this into a more efficient loop for each of the nodes in the data layer, or at least in a given array. Lots of redundancy rn
-    result.data.sound.nodes.forEach(node => {
+    result.data.render.nodes.forEach(node => {
         createPage({
             path: node.fields.slug,
             component: workPostTemplate,
@@ -109,26 +81,7 @@ exports.createPages = async ({ graphql, actions }) => {
         })
     })
 
-    result.data.design.nodes.forEach(node => {
-        createPage({
-            path: node.fields.slug,
-            component: workPostTemplate,
-            context: {
-                slug: node.fields.slug,
-            },
-        })
-    })
-
-    result.data.research.nodes.forEach(node => {
-        createPage({
-            path: node.fields.slug,
-            component: workPostTemplate,
-            context: {
-                slug: node.fields.slug,
-            },
-        })
-    })
-
+    
 
     result.data.unsorted.nodes.forEach(node => {
         createPage({
@@ -140,16 +93,7 @@ exports.createPages = async ({ graphql, actions }) => {
         })
     })
 
-    // Create garden pages
-    result.data.garden.nodes.forEach((node) => {
-        createPage({
-        path: node.fields.slug,
-        component: gardenPostTemplate,
-        context: {
-            slug: node.fields.slug,
-        },
-        });
-    });
+
 
     // Create about pages
     result.data.about.nodes.forEach(node => {
