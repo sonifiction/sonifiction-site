@@ -1,6 +1,8 @@
 import React from "react";
 import { graphql} from "gatsby";
 import Layout from "../components/layout";
+import lodash from "lodash";
+// import
 
 const WorkPost = ({ data, 
                     // pageContext 
@@ -10,13 +12,13 @@ const WorkPost = ({ data,
     // const {frontmatter, 
     //   // fields, 
     //   html} = markdownRemark;
-    
+    const headingID=lodash.camelCase(data.frontmatter.title)
 
     return (
       // <Layout>
       // <p>{data.html}</p>
       <span>
-            <h1 className="smaller mb-5">{data.frontmatter.title}
+            <h1 className="smaller mb-5" id={headingID}>{data.frontmatter.title}
             {data.frontmatter.subtitle ? 
                     (<span className="customSubheading"> <br/> {data.frontmatter.subtitle} </span>) 
                     : 

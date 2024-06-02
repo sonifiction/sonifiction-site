@@ -68,8 +68,6 @@ const IndexPage = ({ pageContext }) => {
   // <p>{.html}</p>
 )
 
-
-
   return (
     <Layout name="Index" crumbs={crumbs}>
       <section>
