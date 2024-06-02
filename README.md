@@ -15,3 +15,26 @@ https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/how-gatsby-works-w
 ## Adding Content:
 
 To add new pages with markdown, add them to the gatsby node query, as well as the appropriate folder. Then pick a template which they will load based off, and update that route in the bottom of the gatsby-node file
+
+
+# Utilities
+
+## Dithering
+
+dither_images.py recursively traverses folders and creates dithered versions of the images it finds. These are stored in the same folder as the images in a folder called "dithers".
+
+### Installation & Depedencies
+
+depends on Pillow and hitherdither
+
+`pip install Pillow git+https://www.github.com/hbldh/hitherdither`
+
+### Usage:
+
+Dither all the images found in the subdirectories of content `python3 utils/dither_images.py --directory src/content/`
+
+Colorize the dithers as well based on the LTM categories: `python3 utils/dither_images.py --directory src/content/ --colorize`
+
+Run the script with more debug output: `python3 utils/dither_images.py --directory src/content/ --colorize --verbose`
+
+Remove all dithered files in the subdirectories of content: `python3 utils/dither_images.py --remove --directory content/`
