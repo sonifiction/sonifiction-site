@@ -9,6 +9,38 @@ import argparse
 import shutil
 from PIL import Image
 import logging
+from dotenv import load_dotenv
+
+load_dotenv()  # Load environment variables from .env file
+
+primary = os.getenv('primary')
+secondary = os.getenv('secondary')
+background = os.getenv('background')
+(primary,secondary,background)=(tuple(int(hex.lstrip('#')[i:i+2], 16) for i in (0, 2, 4)) for hex in (primary,secondary,background) )
+
+
+
+# create palette:
+
+def interpolate_color(color1, color2, factor):
+    return tuple(int(color1[i] + (color2[i] - color1[i]) * factor) for i in range(3))
+
+def create_palette(colors, num_colors):
+    palette = []
+    n = len(colors) - 1
+    for i in range(num_colors):
+        segment = i / (num_colors - 1) * n
+        idx = int(segment)
+        factor = segment - idx
+        c1 = colors[idx]
+        c2 = colors[min(idx + 1, n)]
+        palette.append(interpolate_color(c1, c2, factor))
+    return palette
+
+
+interp_palette = create_palette([primary,secondary,background],8)
+
+
 
 parser = argparse.ArgumentParser(
     """
@@ -90,7 +122,7 @@ def dither_image(source_image, output_image, category ='grayscale'):
     if args.colorize:
         palette = colorize(source_image, category)
     else:
-        palette = hitherdither.palette.Palette([(25,25,25), (75,75,75),(125,125,125),(175,175,175),(225,225,225),(250,250,250)])
+        palette = hitherdither.palette.Palette(interp_palette)
 
     try:
         img= Image.open(source_image).convert('RGB')
