@@ -1,8 +1,8 @@
-$primary: pink;
-$background-color:  rgb(11, 0, 53);
+$primary: #ffc0cb;
+$background-color:  #0b0035;
 // $background-color: black;
 // $background: pink;
-$text: rgb(82, 82, 82);
+$text: #525252;
 $heading-text: $text;
 $accent-text: $primary;
 $link: $primary;
@@ -521,6 +521,23 @@ $blurAmount: 0.05em;
             }
         
     }
+}
+
+// Create a pseudo-element to apply the tint
+img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $primary; // Apply the tint color
+    pointer-events: none; // Ensure that the pseudo-element doesn't block interactions
+}
+
+Optionally, you can adjust the opacity of the pseudo-element to control the intensity of the tint
+img::before {
+  opacity: 0.5; // Adjust opacity as needed
 }
 
 .background {

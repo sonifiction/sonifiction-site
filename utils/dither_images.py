@@ -9,6 +9,35 @@ import argparse
 import shutil
 from PIL import Image
 import logging
+from dotenv import load_dotenv
+import colorsys
+
+load_dotenv()  # Load environment variables from .env file
+
+primary = os.getenv('primary')
+secondary = os.getenv('secondary')
+background = os.getenv('background')
+(primary,secondary,background)=(tuple(int(hex.lstrip('#')[i:i+2], 16) for i in (0, 2, 4)) for hex in (primary,secondary,background) )
+
+# create palette:
+def interpolate_color(color1, color2, factor):
+    return tuple(int(color1[i] + (color2[i] - color1[i]) * factor) for i in range(3))
+
+def create_palette(colors, num_colors):
+    palette = []
+    n = len(colors) - 1
+    for i in range(num_colors):
+        segment = i / (num_colors - 1) * n
+        idx = int(segment)
+        factor = segment - idx
+        c1 = colors[idx]
+        c2 = colors[min(idx + 1, n)]
+        palette.append(interpolate_color(c1, c2, factor))
+    return palette
+
+
+interp_palette = create_palette([primary,secondary,background],8)
+
 
 parser = argparse.ArgumentParser(
     """
@@ -23,10 +52,6 @@ parser.add_argument(
 
 parser.add_argument(
     '-rm', '--remove', help="Removes all the folders with dithers and their contents", action="store_true" 
-    )
-
-parser.add_argument(
-    '-c', '--colorize', help="Colorizes the dithered images", action="store_true" 
     )
 
 parser.add_argument(
@@ -51,46 +76,10 @@ exclude_dirs = set(["dithers"])
 logging.info("Dithering all images in {} and subfolders".format(content_dir))
 logging.debug("excluding directories: {}".format("".join(exclude_dirs)))
 
-def colorize(source_image, category):
-    """
-    Picks a colored dithering palette based on the post category.
-    """
-
-    colors = {
-            'low-tech': hitherdither.palette.Palette([(30,32,40), (11,21,71),(57,77,174),(158,168,218),(187,196,230),(243,244,250)]),
-            'obsolete': hitherdither.palette.Palette([(9,74,58), (58,136,118),(101,163,148),(144,189,179),(169,204,195),(242,247,246)]),
-            'high-tech': hitherdither.palette.Palette([(86,9,6), (197,49,45),(228,130,124),(233,155,151),(242,193,190),(252,241,240)]),
-            'grayscale': hitherdither.palette.Palette([(25,25,25), (75,75,75),(125,125,125),(175,175,175),(225,225,225),(250,250,250)])
-        }
-
-
-    if category:
-
-        for i in colors.keys():
-            if i in category.lower():
-                color = colors[i]
-                logging.info("Applying color palette '{}' for {}".format(i, category))
-                break
-            else:
-                logging.info("No category for {}, {}".format(source_image, category))
-                print("No category for {}, {}".format(source_image, category))
-                color = colors['grayscale']
-
-    else:
-        logging.info("No category for {}, {}".format(source_image, category))
-        print("No category for {}, {}".format(source_image, category))
-        color = colors['grayscale']
-        
-    return color
-
-
-def dither_image(source_image, output_image, category ='grayscale'):
+def dither_image(source_image, output_image):
     #see hitherdither docs for different dithering algos and settings
 
-    if args.colorize:
-        palette = colorize(source_image, category)
-    else:
-        palette = hitherdither.palette.Palette([(25,25,25), (75,75,75),(125,125,125),(175,175,175),(225,225,225),(250,250,250)])
+    palette = hitherdither.palette.Palette(interp_palette)
 
     try:
         img= Image.open(source_image).convert('RGB')
@@ -153,15 +142,6 @@ else:
                         os.mkdir(os.path.join(root,'dithers'))
                         logging.info("📁 created in {}".format(root))
 
-        if args.colorize:
-            #iterate over md files to find one with a category
-            if not category:
-                for i in os.listdir(root):
-                    if i.startswith('index'):
-                        category2 = parse_front_matter(os.path.join(root,i))
-                        
-                        break
-
 
         for fname in files:
             if fname.endswith(tuple(image_ext)):
@@ -169,9 +149,7 @@ else:
                     source_image= os.path.join(root,fname)
                     output_image = os.path.join(os.path.join(root, 'dithers'), file_+'_dithered.png')
                     if not os.path.exists(output_image):
-                        if not args.colorize:
-                            category2 = "grayscale"
-                        dither_image(source_image,output_image, category2)
+                        dither_image(source_image,output_image)
                         logging.info("🖼 converted {}".format(fname))
                         logging.debug(output_image)
                     else:
