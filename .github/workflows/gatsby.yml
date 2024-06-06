@@ -36,6 +36,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      # this bit takes all my transformed repo from artifact, then puts it through gatsby...
+      - name: Download transformed repo
+        uses: actions/download-artifact@v2
+        with:
+          name: transformed-repo
+
+      - name: Extract transformed repo
+        run: |
+          tar -xzf transformed-repo/transformed_repo.tar.gz -C ./transformed-repo
+
       - name: Detect package manager
         id: detect-package-manager
         run: |
