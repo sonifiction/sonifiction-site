@@ -14,7 +14,7 @@ import "../style/bulmacustom.scss"
 //   // },
 // ];
 
-const Layout = ({children, nameInNav, name, hero, toc}) => {
+const Layout = ({children, nameInNav, name, hero, toc=[]}) => {
 
   
     const navBar = (

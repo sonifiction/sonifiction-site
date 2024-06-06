@@ -70,41 +70,41 @@ exports.createPages = async ({ graphql, actions }) => {
     `);
 
 
-    // Create work pages 
-    result.data.render.nodes.forEach(node => {
-        createPage({
-            path: node.fields.slug,
-            component: workPostTemplate,
-            context: {
-                slug: node.fields.slug,
-            },
-        })
-    })
+    // // Create work pages 
+    // result.data.render.nodes.forEach(node => {
+    //     createPage({
+    //         path: node.fields.slug,
+    //         component: workPostTemplate,
+    //         context: {
+    //             slug: node.fields.slug,
+    //         },
+    //     })
+    // })
 
     
 
-    result.data.unsorted.nodes.forEach(node => {
-        createPage({
-            path: node.fields.slug,
-            component: workPostTemplate,
-            context: {
-                slug: node.fields.slug,
-            },
-        })
-    })
+    // result.data.unsorted.nodes.forEach(node => {
+    //     createPage({
+    //         path: node.fields.slug,
+    //         component: workPostTemplate,
+    //         context: {
+    //             slug: node.fields.slug,
+    //         },
+    //     })
+    // })
 
 
 
-    // Create about pages
-    result.data.about.nodes.forEach(node => {
-        createPage({
-            path: node.fields.slug,
-            component: workPostTemplate,
-            context: {
-                slug: node.fields.slug,
-            },
-        })
-    })
+    // // Create about pages
+    // result.data.about.nodes.forEach(node => {
+    //     createPage({
+    //         path: node.fields.slug,
+    //         component: workPostTemplate,
+    //         context: {
+    //             slug: node.fields.slug,
+    //         },
+    //     })
+    // })
 
 }
 
