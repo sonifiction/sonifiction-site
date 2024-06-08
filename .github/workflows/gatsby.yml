@@ -39,7 +39,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: "3.x"
 
@@ -48,8 +48,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt  # If you have any requirements
 
-      - name: Run data transformation
+      - name: Run data transformation on images
         run: python utils/dither_images.py --directory src/content/
+
+      - name: Run data transformation on markdown
+        run: python utils/replace_dither_links.py src/content
 
       - name: Archive transformed repo
         run: |
