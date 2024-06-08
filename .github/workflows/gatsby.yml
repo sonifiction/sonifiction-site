@@ -77,10 +77,10 @@ jobs:
 
       - name: Extract transformed repo
         run: |
-          ls
-        # tar -xzf transformed-repo/transformed_repo.tar.gz -C ./transformed-repo
+          tar -xzf transformed_repo.tar.gz 
+        # -C ./transformed-repo
 
-      # Now back to regular
+      # Now back to regular script
       - name: Detect package manager
         id: detect-package-manager
         run: |
