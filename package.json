@@ -13,7 +13,7 @@
     "start": "npm run utils && gatsby develop",
     "build": "npm run utils && gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean && source .venv/bin/activate && python3 utils/dither_images.py --remove --directory content/",
+    "clean": "gatsby clean && rm -r public && .venv/bin/activate && python3 utils/dither_images.py --remove --directory content/",
     "predeploy": "rm -rf node_modules/.cache/gh-pages && npm run build",
     "deploy": "npm run build && gh-pages -d public -b deploy"
   },

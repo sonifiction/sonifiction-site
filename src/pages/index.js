@@ -1,7 +1,6 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import Layout from "../components/layout";
-import ThemeList from "../components/themeList";
 import WorkPost from "../templates/workPost";
 import lodash from "lodash";
 

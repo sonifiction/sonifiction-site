@@ -23,23 +23,30 @@ const InfoPage = ({pageContext}) => {
       }
     `);
 
-  return (
-    <Layout name="about" crumbs={crumbs}>
-      <h1 className="smaller mb-5">Info</h1>
-        <div
-          className="content my-0"
-          dangerouslySetInnerHTML={{ __html: data.about.html }}
-        ></div>
+  
+  if(data.about){
+    return (
+      <Layout name="about" crumbs={crumbs}>
+        <h1 className="smaller mb-5">Info</h1>
+          <div
+            className="content my-0"
+            dangerouslySetInnerHTML={{ __html: data.about.html }}
+          ></div>
 
-        {/* TODO: Make relative links work to the rest of my pages! CV, etc etc... */}
-        {/* <div className=".notMarkdown block">
-          <p>Here are some links you might find useful: </p>
-          <Link className=".notMarkdown">what I'm currently working on (my PhD)</Link>
-          <Link>Here's some things I have worked on (my CV)</Link>
-          </div> */}
-    </Layout>
-  );
+          {/* TODO: Make relative links work to the rest of my pages! CV, etc etc... */}
+          {/* <div className=".notMarkdown block">
+            <p>Here are some links you might find useful: </p>
+            <Link className=".notMarkdown">what I'm currently working on (my PhD)</Link>
+            <Link>Here's some things I have worked on (my CV)</Link>
+            </div> */}
+      </Layout>
+    );
+  }
+  else{
+    return
+  }
 }
+
 
 export default InfoPage
 
