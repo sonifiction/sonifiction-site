@@ -7,32 +7,4 @@ on:
       - main
 
 jobs:
-  transform:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'
-
-    - name: Install Python dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt  # If you have any requirements
-
-    - name: Run data transformation
-      run: python utils/dither_images.py --directory src/content/
-
-    - name: Archive transformed repo
-      run: |
-        tar -czf transformed_repo.tar.gz ./*
-
-    - name: Upload transformed repo
-      uses: actions/upload-artifact@v2
-      with:
-        name: transformed-repo
-        path: transformed_repo.tar.gz
+  
