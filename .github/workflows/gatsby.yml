@@ -77,7 +77,8 @@ jobs:
 
       - name: Extract transformed repo
         run: |
-          tar -xzf transformed-repo/transformed_repo.tar.gz -C ./transformed-repo
+          ls
+        # tar -xzf transformed-repo/transformed_repo.tar.gz -C ./transformed-repo
 
       # Now back to regular
       - name: Detect package manager
