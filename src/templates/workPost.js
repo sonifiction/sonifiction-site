@@ -13,30 +13,36 @@ const WorkPost = ({ data,
     //   // fields, 
     //   html} = markdownRemark;
     const headingID=lodash.camelCase(data.frontmatter.title)
+    
 
-    return (
-      // <Layout>
-      // <p>{data.html}</p>
-      <span>
-            <h1 className="smaller mb-5" id={headingID}>{data.frontmatter.title}
-            {data.frontmatter.subtitle ? 
-                    (<span className="customSubheading"> <br/> {data.frontmatter.subtitle} </span>) 
-                    : 
-                    (
-                    <></>
-                        )
-                    }
-                    </h1>
-            <div
-              className="content"
-              dangerouslySetInnerHTML={{ __html: data.html }}
-            >
-            </div>
-            <br/>
-            <br/>
-      </span>
-      //{/* </Layout> */}
-    );
+    if(data.html){
+      return (
+        // <Layout>
+        // <p>{data.html}</p>
+        <span>
+              <h1 className="smaller mb-5" id={headingID}>{data.frontmatter.title}
+              {data.frontmatter.subtitle ? 
+                      (<span className="customSubheading"> <br/> {data.frontmatter.subtitle} </span>) 
+                      : 
+                      (
+                      <></>
+                          )
+                      }
+                      </h1>
+              <div
+                className="content"
+                dangerouslySetInnerHTML={{ __html: data.html }}
+              >
+              </div>
+              <br/>
+              <br/>
+        </span>
+        //{/* </Layout> */}
+      );
+    }
+    else{
+      return
+    }
 }
 
 export default WorkPost;

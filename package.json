@@ -8,9 +8,9 @@
     "gatsby"
   ],
   "scripts": {
-    "utils": "",
+    "utils": "source .venv/bin/activate && python3 utils/dither_images.py --directory src/content/ && python3 utils/replace_dither_links.py src/content",
     "develop": "gatsby develop",
-    "start": "gatsby develop",
+    "start": "npm run utils && gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
