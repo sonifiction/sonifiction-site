@@ -1,11 +1,12 @@
 const { graphql } = require("gatsby");
 const path = require("path");
 const _ = require("lodash");
+const { createFilePath } = require(`gatsby-source-filesystem`)
 // const { default: ThemePage } = require("./src/components/themePage");
 
 // this is on compile, mybe i could write other stuff (like colour changes) in here?
 
-exports.onCreateNode = async ({ node, actions }) => {
+exports.onCreateNode = async ({ node, actions, getNode }) => {
     const { createNodeField } = actions
 
 
@@ -16,6 +17,9 @@ exports.onCreateNode = async ({ node, actions }) => {
         const category = path.dirname(
             path.relative(contentDir, node.fileAbsolutePath)
         )
+        const value = createFilePath({node, getNode})
+        
+
     const fields = {
       category: category,
       slug:
@@ -29,6 +33,14 @@ exports.onCreateNode = async ({ node, actions }) => {
           createNodeField({ node, name, value });
         }
     }
+
+    // if (node.internal.type === "MarkdownRemark") {
+    //     createNodeField({
+    //             name: node.fields.slug.replace(/\/index/g, '').replace(/\/render\//g, '').toLowerCase(),
+    //             node,
+    //             value,
+    //         })
+    //     }
 }
 
 exports.createPages = async ({ graphql, actions }) => {

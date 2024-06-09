@@ -94,5 +94,60 @@ module.exports = {
     "gatsby-remark-responsive-iframe", //Optional: Must be loaded after gatsby-remark-embed-video
     "gatsby-plugin-twitter",
     // 'gatsby-transformer-bibtex',
+    // 
+    // Custom rss stuff
+    // `gatsby-plugin-feed`,
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.edges.map(edge => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.html,
+                  date: edge.node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + "/" + edge.node.fields.slug.replace(/\/index/g, '').replace(/\/render\//g, '').toLowerCase(),
+                  guid: site.siteMetadata.siteUrl + "/" + edge.node.fields.slug.replace(/\/index/g, '').replace(/\/render\//g, '').toLowerCase(),
+                  custom_elements: [{ "content:encoded": edge.node.html }],
+                })
+              })
+            },
+            query: `
+              {
+                allMarkdownRemark(sort: { frontmatter: { date: DESC }}, filter: {fileAbsolutePath: {regex: "/(render)/"  }}) {
+                  edges {
+                    node {
+                      fields {
+                          slug
+                      }
+                      html
+                      frontmatter {
+                        title
+                        date
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+            title: "Sonifiction",
+          },
+        ],
+      },
+    },
   ],
 };
