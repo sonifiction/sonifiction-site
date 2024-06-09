@@ -72,7 +72,7 @@ exports.createPages = async ({ graphql, actions }) => {
     // Create work pages 
     result.data.render.nodes.forEach(node => {
         createPage({
-            path: node.fields.slug,
+            path: node.fields.slug.replace(/\/index/g, '').replace(/\/render\//g, '').toLowerCase(),
             component: workPageTemplate,
             context: {
                 slug: node.fields.slug,
