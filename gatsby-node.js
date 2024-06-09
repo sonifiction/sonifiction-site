@@ -33,8 +33,7 @@ exports.onCreateNode = async ({ node, actions }) => {
 
 exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions
-    const workPostTemplate = path.resolve("./src/templates/workPost.js");
-    const gardenPostTemplate = path.resolve("./src/templates/gardenPost.js");
+    const workPageTemplate = path.resolve("./src/templates/workPage.js");
 
     const result = await graphql(`
         
@@ -70,16 +69,16 @@ exports.createPages = async ({ graphql, actions }) => {
     `);
 
 
-    // // Create work pages 
-    // result.data.render.nodes.forEach(node => {
-    //     createPage({
-    //         path: node.fields.slug,
-    //         component: workPostTemplate,
-    //         context: {
-    //             slug: node.fields.slug,
-    //         },
-    //     })
-    // })
+    // Create work pages 
+    result.data.render.nodes.forEach(node => {
+        createPage({
+            path: node.fields.slug.replace(/\/index/g, '').replace(/\/render\//g, '').toLowerCase(),
+            component: workPageTemplate,
+            context: {
+                slug: node.fields.slug,
+            },
+        })
+    })
 
     
 
