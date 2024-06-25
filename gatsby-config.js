@@ -7,7 +7,7 @@ module.exports = {
   },
   siteMetadata: {
     title: `Sonifiction`,
-    siteUrl: `https://www.sonifiction.net`,
+    siteUrl: `www.sonifiction.net`,
   },
   plugins: [
     "gatsby-plugin-styled-components",
