@@ -3,6 +3,8 @@
  */
 
 
+// By loading two sets of environments, we get both(ish). Anything in the first can be overwritten by the second env
+
 // Load general environment variables
 require('dotenv').config();
 
