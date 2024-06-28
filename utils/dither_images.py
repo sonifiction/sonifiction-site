@@ -13,9 +13,9 @@ from dotenv import load_dotenv
 
 load_dotenv()  # Load environment variables from .env file
 
-primary = os.getenv('primary')
-secondary = os.getenv('secondary')
-background = os.getenv('background')
+primary = os.getenv('PRIMARY')
+secondary = os.getenv('SECONDARY')
+background = os.getenv('BACKGROUND')
 (primary,secondary,background)=(tuple(int(hex.lstrip('#')[i:i+2], 16) for i in (0, 2, 4)) for hex in (primary,secondary,background) )
 
 
@@ -200,14 +200,14 @@ else:
                     file_, ext = os.path.splitext(fname)
                     source_image= os.path.join(root,fname)
                     output_image = os.path.join(os.path.join(root, 'dithers'), file_+'_dithered.png')
-                    if not os.path.exists(output_image):
-                        if not args.colorize:
-                            category2 = "grayscale"
-                        dither_image(source_image,output_image, category2)
-                        logging.info("🖼 converted {}".format(fname))
-                        logging.debug(output_image)
-                    else:
-                        logging.debug("Dithered version of {} found, skipping".format(fname))
+                    # if not os.path.exists(output_image): // Removed in order to allow colour change on compile
+                    if not args.colorize:
+                        category2 = "grayscale"
+                    dither_image(source_image,output_image, category2)
+                    logging.info("🖼 converted {}".format(fname))
+                    logging.debug(output_image)
+                    # else:
+                    #     logging.debug("Dithered version of {} found, skipping".format(fname))
 
         prev_root = root
 
