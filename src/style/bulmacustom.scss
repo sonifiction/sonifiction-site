@@ -1,9 +1,5 @@
-// $primary: pink;
-// $primary : $other-variable-env;
-// $background-color:  rgb(11, 0, 53);
-// $background-color: black;
-// $background: pink;
-$text: rgb(82, 82, 82);
+// primary, text and background-color are currently set via env variables, prepended to this stylesheet via a sass loader in the gatsby config.js
+
 $heading-text: $text;
 $accent-text: $primary;
 $link: $primary;
@@ -32,17 +28,8 @@ $hoverLink: $text;
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap');
 @import url('https://fonts.cdnfonts.com/css/hakuna-sans');
 
-// Set your brand colors
-$purple: #8A4D76;
-$pink: #FA7C91;
-$brown: #757763;
-$beige-light: #D0D1CD;
-$beige-lighter: #EFF0EB;
 
 // Update Bulma's global variables
-// $family-sans-serif:  'PT Serif',
-//  serif;
-
 $font-family: BlinkMacSystemFont, -apple-system, "Helvetica", "Arial", sans-serif;
 $family-heading: "Rubik", BlinkMacSystemFont, -apple-system, "Helvetica", "Arial", sans-serif;
 $serif-family: "Junicode" ;
