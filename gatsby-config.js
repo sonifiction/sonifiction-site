@@ -1,13 +1,23 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
+
+
+// Load general environment variables
+require('dotenv').config();
+
+// Load environment-specific variables based on NODE_ENV
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   flags: {
     DEV_SSR: false
   },
   siteMetadata: {
     title: `Sonifiction`,
-    siteUrl: `www.sonifiction.net`,
+    siteUrl: `https://www.sonifiction.net`,
   },
   plugins: [
     "gatsby-plugin-styled-components",
@@ -70,7 +80,15 @@ module.exports = {
       },
     // `gatsby-transformer-remark`,
     `gatsby-plugin-catch-links`,
-    "gatsby-plugin-sass",
+      {
+          resolve: `gatsby-plugin-sass`,
+          options: {
+            // additionalData: "$env: " + process.env.NODE_ENV + ";",
+            additionalData: "$primary:" + process.env.PRIMARY + ";" +
+            "$text:" + process.env.SECONDARY + ";" +
+            "$background-color:" + process.env.BACKGROUND + ";" 
+        },
+      },
     {
       resolve: "gatsby-remark-embed-video",
       options: {
